@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#173f35">
+  <meta name="description" content="RAWNAQ - وجهتك للتسوق الإلكتروني">
+  <title>RAWNAQ | رونق</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: #faf8f5;
+      color: #252923;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 22px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e9e4dc;
+      background: rgba(250,248,245,.95);
+    }
+
+    .logo {
+      color: #173f35;
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: #b99a5d;
+    }
+
+    .header-note {
+      color: #777;
+      font-size: 13px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 75px 20px 45px;
+    }
+
+    .eyebrow {
+      color: #b99a5d;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    .hero h1 {
+      color: #173f35;
+      font-size: clamp(32px, 5vw, 52px);
+      margin: 15px 0;
+      font-weight: 800;
+    }
+
+    .hero p {
+      color: #777;
+      font-size: 16px;
+      line-height: 2;
+    }
+
+    .stores {
+      max-width: 1050px;
+      margin: 20px auto 90px;
+      padding: 0 22px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .store-card {
+      min-height: 380px;
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 35px;
+      text-decoration: none;
+      position: relative;
+      transition: .3s ease;
+    }
+
+    .store-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 15px 35px #00000015;
+    }
+
+    .fashion {
+      background: linear-gradient(145deg, #e8e0d6, #c9bbaa);
+      color: #28241f;
+    }
+
+    .stationery {
+      background: linear-gradient(145deg, #dce5dd, #a9b9aa);
+      color: #173f35;
+    }
+
+    .card-label {
+      font-size: 12px;
+      letter-spacing: 3px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .store-card h2 {
+      font-size: 30px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .store-card p {
+      font-size: 14px;
+      line-height: 2;
+      opacity: .8;
+      margin-bottom: 22px;
+    }
+
+    .enter {
+      border: 1px solid currentColor;
+      border-radius: 7px;
+      padding: 10px 20px;
+      width: fit-content;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      border-top: 1px solid #e9e4dc;
+      color: #888;
+      font-size: 12px;
+    }
+
+    @media(max-width: 650px) {
+      header {
+        padding: 18px 20px;
+      }
+
+      .header-note {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 55px;
+      }
+
+      .stores {
+        grid-template-columns: 1fr;
+        margin-bottom: 55px;
+      }
+
+      .store-card {
+        min-height: 300px;
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">RAWNAQ<span>.</span></div>
+    <div class="header-note">تجربة تسوق تجمع كل ما تحب</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">WELCOME TO RAWNAQ</div>
+      <h1>أهلاً بك في عالم رونق</h1>
+      <p>
+        اكتشف عالمين من التسوق في مكان واحد.<br>
+        اختر متجرك وابدأ رحلتك.
+      </p>
+    </section>
+
+    <section class="stores">
+
+      <a href="/fashion/" class="store-card fashion">
+        <div class="card-label">01 — FASHION</div>
+        <h2>RAWNAQ FASHION</h2>
+        <p>
+          أناقتك تبدأ من هنا.<br>
+          اكتشف أحدث الملابس والإكسسوارات.
+        </p>
+        <span class="enter">اكتشف المتجر ←</span>
+      </a>
+
+      <a href="/store/" class="store-card stationery">
+        <div class="card-label">02 — STORE</div>
+        <h2>RAWNAQ STORE</h2>
+        <p>
+          تفاصيل صغيرة تصنع فرقاً كبيراً.<br>
+          القرطاسية والهدايا والورود.
+        </p>
+        <span class="enter">اكتشف المتجر ←</span>
+      </a>
+
+    </section>
+  </main>
+
+  <footer>
+    © 2026 RAWNAQ — جميع الحقوق محفوظة
+  </footer>
+
+</body>
+</html>
