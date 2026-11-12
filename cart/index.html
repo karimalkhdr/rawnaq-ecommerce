@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#20232e">
+<title>RAWNAQ | سلة المشتريات</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+--bg:#f8f7f4;
+--dark:#20232e;
+--gold:#c39a58;
+--text:#30313a;
+--muted:#85858d;
+--white:#fff;
+}
+body{font-family:Cairo,sans-serif;background:var(--bg);color:var(--text)}
+a{text-decoration:none;color:inherit}
+header{background:white;padding:18px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #eee}
+.logo{font-size:24px;font-weight:800;letter-spacing:1px;color:var(--dark)}
+.logo span{color:var(--gold)}
+.back{font-size:13px;color:var(--muted)}
+.container{width:90%;max-width:1100px;margin:45px auto}
+.heading{margin-bottom:28px}
+.heading h1{font-size:30px;color:var(--dark)}
+.heading p{color:var(--muted);font-size:13px;margin-top:7px}
+.layout{display:grid;grid-template-columns:1.7fr 1fr;gap:22px;align-items:start}
+.panel{background:white;border:1px solid #eee;border-radius:15px;padding:23px}
+.panel h2{font-size:17px;margin-bottom:20px}
+.item{display:flex;gap:15px;padding:17px 0;border-bottom:1px solid #eee;align-items:center}
+.item:last-child{border:0}
+.product-image{width:85px;height:85px;flex-shrink:0;border-radius:10px;background:#f3f1ed;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.product-image img{width:100%;height:100%;object-fit:cover}
+.placeholder{font-size:30px}
+.details{flex:1;min-width:0}
+.details h3{font-size:14px}
+.details p{font-size:11px;color:var(--muted);margin-top:5px}
+.price{font-size:14px;font-weight:800;color:var(--dark);margin-top:8px}
+.controls{display:flex;align-items:center;gap:9px;margin-top:9px}
+.controls button{width:27px;height:27px;border:1px solid #ddd;background:white;border-radius:6px;cursor:pointer}
+.controls span{font-size:12px}
+.remove{border:0;background:none;color:#c65d5d;font-size:11px;cursor:pointer;margin-top:8px;font-family:inherit}
+.summary-row{display:flex;justify-content:space-between;padding:12px 0;font-size:13px;color:var(--muted)}
+.summary-row.total{border-top:1px solid #eee;margin-top:10px;padding-top:18px;font-size:17px;color:var(--dark);font-weight:800}
+.checkout{width:100%;padding:13px;border:0;border-radius:9px;background:var(--dark);color:white;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;margin-top:15px}
+.checkout:hover{background:#343949}
+.continue{display:block;text-align:center;color:var(--gold);font-size:12px;margin-top:17px}
+.empty{text-align:center;padding:45px 10px}
+.empty .icon{font-size:48px}
+.empty h3{margin:12px 0}
+.empty p{font-size:12px;color:var(--muted)}
+.empty a{display:inline-block;margin-top:18px;background:var(--dark);color:white;padding:10px 25px;border-radius:8px;font-size:12px}
+footer{text-align:center;background:var(--dark);color:#ccc;padding:28px;font-size:11px;margin-top:65px}
+.notice{background:#f5f0e6;color:#816b49;border-radius:9px;padding:12px;font-size:11px;line-height:2;margin-top:15px}
+@media(max-width:750px){
+header{padding:15px 5%}
+.container{width:94%;margin:30px auto}
+.layout{grid-template-columns:1fr}
+.heading h1{font-size:25px}
+.panel{padding:16px}
+.product-image{width:70px;height:70px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="../" class="logo">RAWNAQ <span>STORE</span></a>
+  <a href="../" class="back">← متابعة التسوق</a>
+</header>
+
+<main class="container">
+
+  <section class="heading">
+    <h1>سلة المشتريات 🛒</h1>
+    <p>كل اختياراتك من عالم رونق في مكان واحد.</p>
+  </section>
+
+  <section class="layout">
+
+    <div class="panel">
+      <h2>منتجاتك</h2>
+      <div id="cartItems"></div>
+    </div>
+
+    <div class="panel">
+      <h2>ملخص الطلب</h2>
+
+      <div class="summary-row">
+        <span>عدد المنتجات</span>
+        <span id="count">0</span>
+      </div>
+
+      <div class="summary-row">
+        <span>المجموع الفرعي</span>
+        <span id="subtotal">0</span>
+      </div>
+
+      <div class="summary-row">
+        <span>الخصومات</span>
+        <span id="discount">0</span>
+      </div>
+
+      <div class="summary-row total">
+        <span>الإجمالي</span>
+        <span id="total">0</span>
+      </div>
+
+      <button class="checkout" onclick="checkout()">
+        متابعة إتمام الطلب
+      </button>
+
+      <a href="../" class="continue">
+        متابعة التسوق
+      </a>
+
+      <div class="notice">
+        سيتم تفعيل تأكيد الطلب والدفع والشحن
+        بعد ربط النظام وقاعدة البيانات.
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<footer>
+  RAWNAQ © جميع الحقوق محفوظة
+  <br>THE WORLD OF RAWNAQ
+</footer>
+
+<script>
+const STORAGE_KEY = "rawnaq_cart";
+
+function getCart(){
+  try {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    return Array.isArray(data) ? data : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveCart(cart){
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+  renderCart();
+}
+
+function money(value){
+  return Number(value || 0).toLocaleString("ar");
+}
+
+function renderCart(){
+  const cart = getCart();
+  const container = document.getElementById("cartItems");
+
+  if(cart.length === 0){
+    container.innerHTML = `
+      <div class="empty">
+        <div class="icon">🛍️</div>
+        <h3>سلتك فارغة حالياً</h3>
+        <p>ابدأ التسوق وأضف منتجاتك المفضلة.</p>
+        <a href="../">اكتشف منتجاتنا</a>
+      </div>
+    `;
+  } else {
+    container.innerHTML = cart.map((item,index) => {
+      const image = item.image
+        ? `<img src="${escapeHTML(item.image)}" alt="">`
+        : `<span class="placeholder">🛍️</span>`;
+
+      const price = Math.max(0, Number(item.price) || 0);
+      const qty = Math.max(1, Math.floor(Number(item.qty) || 1));
+
+      return `
+        <div class="item">
+          <div class="product-image">${image}</div>
+
+          <div class="details">
+            <h3>${escapeHTML(item.name || "منتج")}</h3>
+            <p>${escapeHTML(item.store || "RAWNAQ")}</p>
+            ${item.variant ? `<p>${escapeHTML(item.variant)}</p>` : ""}
+            <div class="price">${money(price)} ل.س</div>
+
+            <div class="controls">
+              <button onclick="changeQty(${index},1)">+</button>
+              <span>${qty}</span>
+              <button onclick="changeQty(${index},-1)">−</button>
+            </div>
+
+            <button class="remove" onclick="removeItem(${index})">
+              حذف المنتج
+            </button>
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
+  const count = cart.reduce((sum,item) =>
+    sum + Math.max(1,Math.floor(Number(item.qty)||1)),0);
+
+  const subtotal = cart.reduce((sum,item) =>
+    sum + Math.max(0,Number(item.price)||0) *
+    Math.max(1,Math.floor(Number(item.qty)||1)),0);
+
+  document.getElementById("count").textContent = count;
+  document.getElementById("subtotal").textContent = money(subtotal) + " ل.س";
+  document.getElementById("discount").textContent = "0 ل.س";
+  document.getElementById("total").textContent = money(subtotal) + " ل.س";
+}
+
+function escapeHTML(value){
+  return String(value).replace(/[&<>"']/g,char => ({
+    "&":"&amp;",
+    "<":"&lt;",
+    ">":"&gt;",
+    '"':"&quot;",
+    "'":"&#39;"
+  })[char]);
+}
+
+function changeQty(index,change){
+  const cart = getCart();
+  if(!cart[index]) return;
+
+  const current = Math.max(1,Math.floor(Number(cart[index].qty)||1));
+  const next = current + change;
+
+  if(next < 1) return;
+
+  cart[index].qty = next;
+  saveCart(cart);
+}
+
+function removeItem(index){
+  const cart = getCart();
+  cart.splice(index,1);
+  saveCart(cart);
+}
+
+function checkout(){
+  alert("سيتم تفعيل إتمام الطلب بعد تجهيز قاعدة البيانات ونظام الطلبات.");
+}
+
+window.addEventListener("storage",event => {
+  if(event.key === STORAGE_KEY) renderCart();
+});
+
+renderCart();
+</script>
+
+</body>
+</html>
