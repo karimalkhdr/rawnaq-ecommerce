@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#171923">
+
+  <title>RAWNAQ STORE | عالم الهدايا والقرطاسية</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f8f7f4;
+      --dark: #20232e;
+      --gold: #c39a58;
+      --text: #30313a;
+      --muted: #777984;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .topbar {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 9px 15px;
+      font-size: 12px;
+    }
+
+    header {
+      background: white;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: 2px;
+    }
+
+    .logo span {
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: var(--gold);
+    }
+
+    .cart {
+      border: 1px solid #ddd;
+      border-radius: 30px;
+      padding: 8px 15px;
+      font-size: 13px;
+    }
+
+    .hero {
+      margin: 30px auto;
+      width: 86%;
+      min-height: 340px;
+      border-radius: 18px;
+      background: linear-gradient(115deg, #20232e, #45404a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 650px;
+    }
+
+    .hero small {
+      color: #e4c38c;
+      letter-spacing: 3px;
+      font-size: 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 5vw, 49px);
+      margin: 15px 0;
+      font-weight: 800;
+    }
+
+    .hero p {
+      color: #e0dce0;
+      font-size: 14px;
+      line-height: 2;
+    }
+
+    .hero a {
+      display: inline-block;
+      margin-top: 25px;
+      background: var(--gold);
+      color: #171923;
+      padding: 11px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .section {
+      width: 86%;
+      margin: 55px auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      font-size: 25px;
+      color: var(--dark);
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .category {
+      background: white;
+      border: 1px solid #eee;
+      border-radius: 15px;
+      padding: 30px 15px;
+      text-align: center;
+      transition: .25s;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+      box-shadow: 0 10px 30px #0000000a;
+    }
+
+    .category .icon {
+      font-size: 38px;
+      margin-bottom: 12px;
+    }
+
+    .category h3 {
+      font-size: 16px;
+      margin-bottom: 7px;
+    }
+
+    .category p {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .notice {
+      background: #eee9df;
+      border-radius: 15px;
+      padding: 28px;
+      text-align: center;
+      line-height: 2;
+    }
+
+    .notice h2 {
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .notice p {
+      color: #68656a;
+      font-size: 13px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 35px 15px;
+      margin-top: 60px;
+    }
+
+    footer h2 {
+      color: var(--gold);
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: #c7c7cc;
+      line-height: 2;
+    }
+
+    .footer-links {
+      margin: 18px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      font-size: 12px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 15px 5%;
+        flex-wrap: wrap;
+      }
+
+      nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .logo {
+        font-size: 21px;
+      }
+
+      .hero, .section {
+        width: 92%;
+      }
+
+      .hero {
+        min-height: 290px;
+      }
+
+      .categories {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .category {
+        padding: 22px 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="topbar">
+    مرحباً بك في عالم رونق | تسوق واكتشف كل ما تحب
+  </div>
+
+  <header>
+    <a href="../" class="logo">RAWNAQ <span>STORE</span></a>
+
+    <nav>
+      <a href="../">الرئيسية</a>
+      <a href="#categories">الأقسام</a>
+      <a href="#about">من نحن</a>
+      <a href="../fashion/">متجر الأزياء</a>
+    </nav>
+
+    <a href="../cart/" class="cart">🛒 سلة المشتريات</a>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <small>THE WORLD OF RAWNAQ</small>
+      <h1>كل ما تحبه في مكان واحد</h1>
+      <p>
+        اكتشف عالماً من القرطاسية والهدايا والورود
+        والتصاميم المميزة، واجعل لكل مناسبة رونقاً خاصاً.
+      </p>
+      <a href="#categories">اكتشف أقسامنا</a>
+    </div>
+  </section>
+
+  <section class="section" id="categories">
+    <div class="section-heading">
+      <h2>اكتشف أقسامنا</h2>
+      <p>تفاصيل صغيرة تصنع فرقاً كبيراً</p>
+    </div>
+
+    <div class="categories">
+
+      <div class="category">
+        <div class="icon">📚</div>
+        <h3>القرطاسية</h3>
+        <p>كل ما تحتاجه للدراسة والتنظيم</p>
+      </div>
+
+      <div class="category">
+        <div class="icon">🎁</div>
+        <h3>الهدايا</h3>
+        <p>هدايا مميزة لكل المناسبات</p>
+      </div>
+
+      <div class="category">
+        <div class="icon">💐</div>
+        <h3>الورود والباقات</h3>
+        <p>تنسيقات تضيف الجمال لكل مناسبة</p>
+      </div>
+
+      <div class="category">
+        <div class="icon">⌚</div>
+        <h3>الساعات</h3>
+        <p>أناقة تكتمل بالتفاصيل</p>
+      </div>
+
+      <div class="category">
+        <div class="icon">🖨️</div>
+        <h3>التصاميم والطباعة</h3>
+        <p>خدمات وتصاميم حسب الطلب</p>
+      </div>
+
+      <div class="category">
+        <div class="icon">✨</div>
+        <h3>منتجات متنوعة</h3>
+        <p>اكتشف المزيد من اختياراتنا</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="notice">
+      <h2>مرحباً بك في RAWNAQ STORE</h2>
+      <p>
+        متجرنا جزء من منصة RAWNAQ للتجارة الإلكترونية،
+        حيث نجمع لك الأناقة والهدايا والاحتياجات اليومية
+        في تجربة تسوق واحدة.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <h2>RAWNAQ</h2>
+    <p>THE WORLD OF RAWNAQ</p>
+
+    <div class="footer-links">
+      <a href="../">الرئيسية</a>
+      <a href="../fashion/">RAWNAQ FASHION</a>
+      <a href="#categories">أقسامنا</a>
+    </div>
+
+    <p>جميع الحقوق محفوظة © RAWNAQ</p>
+  </footer>
+
+</body>
+</html>
