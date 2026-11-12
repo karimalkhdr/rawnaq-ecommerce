@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAWNAQ STORE | لوحة الإدارة</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Cairo, sans-serif;
+  background: #10131c;
+  color: #f5f5f5;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  background: #1b2130;
+  padding: 18px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #303747;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.logo span {
+  color: #d6ad70;
+}
+
+.header-link {
+  color: #d6ad70;
+  font-size: 12px;
+}
+
+.container {
+  width: 92%;
+  max-width: 1250px;
+  margin: 35px auto;
+}
+
+.welcome {
+  margin-bottom: 30px;
+}
+
+.welcome h1 {
+  font-size: 27px;
+}
+
+.welcome p {
+  color: #9ca3b2;
+  font-size: 13px;
+  margin-top: 8px;
+  line-height: 2;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.stat {
+  background: #1b2130;
+  border: 1px solid #303747;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.stat small {
+  color: #a5a9b5;
+  font-size: 12px;
+}
+
+.stat h2 {
+  font-size: 27px;
+  margin-top: 8px;
+  color: #d6ad70;
+}
+
+.section-title {
+  font-size: 19px;
+  margin: 30px 0 16px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.action {
+  background: #1b2130;
+  border: 1px solid #303747;
+  border-radius: 14px;
+  padding: 22px;
+  transition: .25s;
+}
+
+.action:hover {
+  transform: translateY(-4px);
+  border-color: #d6ad70;
+}
+
+.icon {
+  font-size: 29px;
+  margin-bottom: 10px;
+}
+
+.action h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.action p {
+  font-size: 12px;
+  color: #a5a9b5;
+  line-height: 2;
+  min-height: 48px;
+}
+
+button {
+  display: inline-block;
+  background: #d6ad70;
+  color: #171923;
+  border: 0;
+  border-radius: 8px;
+  padding: 10px 17px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.secondary {
+  background: #303747;
+  color: white;
+}
+
+.panel {
+  background: #1b2130;
+  border: 1px solid #303747;
+  border-radius: 14px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.products {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.products th,
+.products td {
+  padding: 14px 10px;
+  text-align: right;
+  border-bottom: 1px solid #303747;
+}
+
+.products th {
+  color: #d6ad70;
+}
+
+.products td {
+  color: #c7cad2;
+}
+
+.empty {
+  text-align: center !important;
+  padding: 30px !important;
+  color: #9298a6 !important;
+}
+
+.note {
+  margin-top: 25px;
+  padding: 18px;
+  background: #292719;
+  border: 1px solid #665332;
+  border-radius: 12px;
+  color: #e5c994;
+  font-size: 12px;
+  line-height: 2;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #777e8e;
+  font-size: 12px;
+}
+
+@media(max-width: 800px) {
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    width: 94%;
+  }
+
+  .products {
+    min-width: 550px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">RAWNAQ <span>STORE</span></div>
+  <a href="../admin/" class="header-link">
+    العودة للإدارة الرئيسية ←
+  </a>
+</header>
+
+<main class="container">
+
+  <section class="welcome">
+    <h1>لوحة إدارة متجر المنتجات</h1>
+    <p>
+      مركز إدارة القرطاسية والهدايا والورود
+      والخدمات والتصاميم، من مكان واحد.
+    </p>
+  </section>
+
+  <section class="stats">
+
+    <div class="stat">
+      <small>إجمالي المنتجات</small>
+      <h2>—</h2>
+    </div>
+
+    <div class="stat">
+      <small>المنتجات المتوفرة</small>
+      <h2>—</h2>
+    </div>
+
+    <div class="stat">
+      <small>المنتجات غير المتوفرة</small>
+      <h2>—</h2>
+    </div>
+
+    <div class="stat">
+      <small>العروض النشطة</small>
+      <h2>—</h2>
+    </div>
+
+  </section>
+
+  <h2 class="section-title">إدارة المتجر</h2>
+
+  <section class="actions">
+
+    <div class="action">
+      <div class="icon">➕</div>
+      <h3>إضافة منتج جديد</h3>
+      <p>
+        إضافة منتج مع الاسم والوصف والسعر
+        والتصنيف والصور.
+      </p>
+      <button type="button">إضافة منتج</button>
+    </div>
+
+    <div class="action">
+      <div class="icon">📦</div>
+      <h3>إدارة المنتجات</h3>
+      <p>
+        تعديل المنتجات وحذفها وتحديث الأسعار
+        وحالة التوفر.
+      </p>
+      <button type="button" class="secondary">
+        عرض المنتجات
+      </button>
+    </div>
+
+    <div class="action">
+      <div class="icon">🏷️</div>
+      <h3>العروض والخصومات</h3>
+      <p>
+        إنشاء عروض خاصة وتحديد الخصومات
+        وتواريخ صلاحيتها.
+      </p>
+      <button type="button" class="secondary">
+        إدارة العروض
+      </button>
+    </div>
+
+    <div class="action">
+      <div class="icon">📷</div>
+      <h3>صور المنتجات</h3>
+      <p>
+        رفع الصور وتنظيمها وربطها بالمنتجات
+        باستخدام Cloudinary.
+      </p>
+      <button type="button" class="secondary">
+        إدارة الصور
+      </button>
+    </div>
+
+    <div class="action">
+      <div class="icon">📂</div>
+      <h3>التصنيفات والأقسام</h3>
+      <p>
+        إدارة القرطاسية والهدايا والورود
+        والساعات والتصاميم.
+      </p>
+      <button type="button" class="secondary">
+        إدارة التصنيفات
+      </button>
+    </div>
+
+    <div class="action">
+      <div class="icon">⚙️</div>
+      <h3>إعدادات المتجر</h3>
+      <p>
+        إعدادات العملة وبيانات المتجر
+        وخيارات العرض.
+      </p>
+      <button type="button" class="secondary">
+        الإعدادات
+      </button>
+    </div>
+
+  </section>
+
+  <h2 class="section-title">قائمة المنتجات</h2>
+
+  <section class="panel">
+
+    <table class="products">
+
+      <thead>
+        <tr>
+          <th>المنتج</th>
+          <th>التصنيف</th>
+          <th>السعر</th>
+          <th>التوفر</th>
+          <th>العرض</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td colspan="5" class="empty">
+            لم يتم ربط قاعدة البيانات بعد.
+            ستظهر المنتجات هنا تلقائياً بعد إعداد النظام.
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </section>
+
+  <div class="note">
+    ملاحظة تقنية:
+    هذه واجهة تأسيسية فقط.
+    ستتم إضافة وظائف إضافة وتعديل وحذف المنتجات،
+    ورفع الصور وإدارة العروض وربط قاعدة البيانات
+    وتسجيل الدخول والصلاحيات في المراحل القادمة.
+  </div>
+
+</main>
+
+<footer>
+  RAWNAQ STORE © جميع الحقوق محفوظة
+  <br>
+  THE WORLD OF RAWNAQ
+</footer>
+
+</body>
+</html>
